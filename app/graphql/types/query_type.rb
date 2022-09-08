@@ -7,11 +7,26 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
+    # Without arguments
+    # {
+    #   testFieldNoArgs
+    # }
+    field :test_field_no_args, String, null: false,
+      description: "Without arguments"
+    def test_field_no_args
       "Hello World!"
+    end
+
+    # With arguments
+    # {
+    #  testFieldWithArgs(name: "Camila")
+    # }
+    field :test_field_with_args, String, null: false,
+      description: "With arguments" do
+        argument :name, String, required: true
+      end
+    def test_field_with_args(name:)
+      "Hello World! #{name}"
     end
   end
 end
