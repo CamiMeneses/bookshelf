@@ -26,6 +26,7 @@ module Types
         argument :name, String, required: true
       end
     def test_field_with_args(name:)
+      Rails.logger.info context[:time]
       "Hello World! #{name}"
     end
   end
