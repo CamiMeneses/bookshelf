@@ -24,10 +24,19 @@ module Types
     field :test_field_with_args, String, null: false,
       description: "With arguments" do
         argument :name, String, required: true
-      end
+    end
+
     def test_field_with_args(name:)
       Rails.logger.info context[:time]
       "Hello World! #{name}"
+    end
+
+    field :author, Types::AuthorType, null: true, description: 'One author' do
+      argument :id, ID, required: true
+    end
+
+    def author(id:)
+      Author.where(id:).first
     end
   end
 end
