@@ -30,5 +30,23 @@ module Types
     # }
 
     field :create_an_author, Types::AuthorType, mutation: Mutations::CreateAnAuthor
+
+    # Another way to send the request with QUERY PARAMS
+
+    # mutation createAnAuthor($first_name:String, $last_name:String, $yob:Int, $is_alive:Boolean){
+    #   createAnAuthor(firstName: $first_name, lastName: $last_name, yob: $yob, isAlive: $is_alive) {
+    #     id
+    #     fullName
+    #   }
+    # }
+
+    # And in query params section:
+
+    # {
+    #   "first_name": "Connie",
+    #   "last_name": "Wills",
+    #   "yob": 1945,
+    #   "is_alive": true
+    # }
   end
 end
