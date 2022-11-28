@@ -18,4 +18,5 @@ class Types::AuthorType < Types::BaseObject
   end
 
   field :coordinates, Types::CoordinatesType, null: false # calling coordinates from Author model
+  field :publication_years, [Int], null: false
 end
