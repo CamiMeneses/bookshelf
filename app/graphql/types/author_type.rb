@@ -9,4 +9,13 @@ class Types::AuthorType < Types::BaseObject
   field :yob, Integer, null: true
   field :is_alive, Boolean, null: true
   field :created_at, GraphQL::Types::ISO8601DateTime, null: false
+
+  field :full_name, String, null: true # field made in the model
+  field :description, String, null: true
+
+  def description
+    "#{object.first_name} #{object.last_name} was born on #{object.yob}"
+  end
+
+  field :coordinates, Types::CoordinatesType, null: false # calling coordinates from Author model
 end
