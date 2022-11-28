@@ -38,5 +38,35 @@ module Types
     def author(id:)
       Author.where(id:).first
     end
+
+    field :authors, [Types::AuthorType], null: true, description: 'Array of authors'
+
+    def authors
+      Author.all
+    end
+
+    # How to show:
+    #
+    # {
+    #   authors {
+    #     lastName
+    #   },
+    #   testFieldNoArgs,
+    #   testFieldWithArgs(name: "Camila"),
+    #   author(id: 1){
+    #     id
+    #     first_name
+    #     lastName
+    #     yob
+    #     createdAt
+    #     fullName
+    #     description
+    #     coordinates{
+    #       latitude
+    #       longitude
+    #     }
+    #     publicationYears
+    #   }
+    # }
   end
 end
