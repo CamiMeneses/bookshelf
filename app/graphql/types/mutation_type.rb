@@ -48,5 +48,23 @@ module Types
     #   "yob": 1945,
     #   "is_alive": true
     # }
+
+    # To use this type: Types::AuthorInputType
+
+    # mutation createAnAuthor($author:AuthorInputType!){
+    #   createAnAuthor(author: $author) {
+    #     id
+    #     fullName
+    #   }
+    # }
+
+    # {
+    #   "author": {
+    #       "firstName": "Connie2",
+    #       "lastName": "Wills2",
+    #       "yob": 1945,
+    #       "isAlive": true
+    #   }
+    # }
   end
 end
